@@ -14,16 +14,16 @@ const links: {
   label: string;
 }[] = [
   {
-    href: "/#pricing",
-    label: "Pricing",
+    href: "/#features",
+    label: "How It Works",
   },
   {
     href: "/#testimonials",
-    label: "Reviews",
+    label: "Success Stories",
   },
   {
-    href: "/#faq",
-    label: "FAQ",
+    href: "/#pricing",
+    label: "Pricing",
   },
 ];
 
@@ -41,28 +41,28 @@ const Header = () => {
   }, [searchParams]);
 
   return (
-    <header className="bg-base-200">
+    <header className="bg-white shadow-sm sticky top-0 z-40">
       <nav
-        className="container flex items-center justify-between px-8 py-4 mx-auto"
+        className="container flex items-center justify-between px-8 py-5 mx-auto"
         aria-label="Global"
       >
         {/* Your logo/name on large screens */}
         <div className="flex lg:flex-1">
           <Link
-            className="flex items-center gap-2 shrink-0 "
+            className="flex items-center gap-3 shrink-0 "
             href="/"
             title={`${config.appName} homepage`}
           >
             <Image
               src={logo}
               alt={`${config.appName} logo`}
-              className="w-8"
+              className="w-10"
               placeholder="blur"
               priority={true}
               width={48}
               height={48}
             />
-            <span className="font-extrabold text-lg">{config.appName}</span>
+            <span className="font-extrabold text-2xl gradient-brand-text">{config.appName}</span>
           </Link>
         </div>
         {/* Burger button to open menu on mobile */}
@@ -91,12 +91,12 @@ const Header = () => {
         </div>
 
         {/* Your links on large screens */}
-        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
+        <div className="hidden lg:flex lg:justify-center lg:gap-10 lg:items-center">
           {links.map((link) => (
             <Link
               href={link.href}
               key={link.href}
-              className="link link-hover"
+              className="text-gray-700 hover:text-[#667eea] font-medium transition-colors duration-200"
               title={link.label}
             >
               {link.label}
@@ -105,7 +105,14 @@ const Header = () => {
         </div>
 
         {/* CTA on large screens */}
-        <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
+        <div className="hidden lg:flex lg:justify-end lg:flex-1">
+          <Link
+            href="/#pricing"
+            className="gradient-brand text-white font-semibold px-6 py-2.5 rounded-lg hover:shadow-lg transition-all duration-200"
+          >
+            Get Started
+          </Link>
+        </div>
       </nav>
 
       {/* Mobile menu, show/hide based on menu state. */}

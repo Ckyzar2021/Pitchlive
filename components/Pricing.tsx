@@ -7,74 +7,77 @@ import ButtonCheckout from "./ButtonCheckout";
 
 const Pricing = () => {
   return (
-    <section className="bg-base-200 overflow-hidden" id="pricing">
-      <div className="py-24 px-8 max-w-5xl mx-auto">
+    <section className="bg-gradient-to-b from-gray-50 to-white overflow-hidden" id="pricing">
+      <div className="py-24 px-8 max-w-7xl mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
-          <p className="font-medium text-primary mb-8">Pricing</p>
-          <h2 className="font-bold text-3xl lg:text-5xl tracking-tight">
-            Save hours of repetitive code and ship faster!
+          <p className="font-semibold gradient-brand-text text-lg mb-4 uppercase tracking-wide">Pricing</p>
+          <h2 className="font-extrabold text-4xl lg:text-6xl tracking-tight mb-6">
+            Choose Your Path to <span className="gradient-brand-text">Funding</span>
           </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Simple, transparent pricing. Start connecting with investors today.
+          </p>
         </div>
 
         <div className="relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8">
           {config.stripe.plans.map((plan) => (
-            <div key={plan.priceId} className="relative w-full max-w-lg">
+            <div key={plan.priceId} className="relative w-full max-w-sm">
               {plan.isFeatured && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                   <span
-                    className={`badge text-xs text-primary-content font-semibold border-0 bg-primary`}
+                    className="gradient-brand text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-wide"
                   >
-                    POPULAR
+                    Most Popular
                   </span>
                 </div>
               )}
 
               {plan.isFeatured && (
                 <div
-                  className={`absolute -inset-[1px] rounded-[9px] bg-primary z-10`}
+                  className="absolute -inset-[2px] rounded-2xl gradient-brand z-10"
                 ></div>
               )}
 
-              <div className="relative flex flex-col h-full gap-5 lg:gap-8 z-10 bg-base-100 p-8 rounded-lg">
+              <div className="relative flex flex-col h-full gap-6 lg:gap-8 z-10 bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="flex justify-between items-center gap-4">
                   <div>
-                    <p className="text-lg lg:text-xl font-bold">{plan.name}</p>
+                    <p className="text-2xl lg:text-3xl font-bold text-gray-900">{plan.name}</p>
                     {plan.description && (
-                      <p className="text-base-content/80 mt-2">
+                      <p className="text-gray-600 mt-2 text-base">
                         {plan.description}
                       </p>
                     )}
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-baseline">
                   {plan.priceAnchor && (
-                    <div className="flex flex-col justify-end mb-[4px] text-lg ">
+                    <div className="flex flex-col justify-end text-lg">
                       <p className="relative">
-                        <span className="absolute bg-base-content h-[1.5px] inset-x-0 top-[53%]"></span>
-                        <span className="text-base-content/80">
+                        <span className="absolute bg-gray-400 h-[2px] inset-x-0 top-[50%]"></span>
+                        <span className="text-gray-400">
                           ${plan.priceAnchor}
                         </span>
                       </p>
                     </div>
                   )}
-                  <p className={`text-5xl tracking-tight font-extrabold`}>
+                  <p className="text-5xl lg:text-6xl tracking-tight font-extrabold gradient-brand-text">
                     ${plan.price}
                   </p>
-                  <div className="flex flex-col justify-end mb-[4px]">
-                    <p className="text-xs text-base-content/60 uppercase font-semibold">
-                      USD
+                  <div className="flex flex-col justify-end mb-2">
+                    <p className="text-sm text-gray-500 font-medium">
+                      /month
                     </p>
                   </div>
                 </div>
                 {plan.features && (
-                  <ul className="space-y-2.5 leading-relaxed text-base flex-1">
+                  <ul className="space-y-4 leading-relaxed text-base flex-1">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2">
+                      <li key={i} className="flex items-start gap-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
-                          className="w-[18px] h-[18px] opacity-80 shrink-0"
+                          className="w-6 h-6 text-[#667eea] shrink-0 mt-0.5"
                         >
                           <path
                             fillRule="evenodd"
@@ -83,16 +86,16 @@ const Pricing = () => {
                           />
                         </svg>
 
-                        <span>{feature.name} </span>
+                        <span className="text-gray-700">{feature.name}</span>
                       </li>
                     ))}
                   </ul>
                 )}
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <ButtonCheckout priceId={plan.priceId} />
 
-                  <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                    Pay once. Access forever.
+                  <p className="flex items-center justify-center gap-2 text-sm text-center text-gray-500 font-medium">
+                    No long-term contracts
                   </p>
                 </div>
               </div>

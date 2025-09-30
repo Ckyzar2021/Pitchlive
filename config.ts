@@ -3,12 +3,12 @@ import { ConfigProps } from "./types/config";
 
 const config = {
   // REQUIRED
-  appName: "FeNAgO",
+  appName: "ConnectCap",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "The NextJS boilerplate with all you need to build your SaaS, AI tool, or any other web app.",
+    "ConnectCap gives frustrated founders direct, 1-on-1 phone call access to investors, cutting through the inefficient fundraising grind.",
   // REQUIRED (no https://, not trailing slash at the end, just the naked domain)
-  domainName: "fenago.com",
+  domainName: "connectcap.com",
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (resend.supportEmail) otherwise customer support won't work.
     id: "",
@@ -27,18 +27,18 @@ const config = {
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "Starter",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
-        description: "Perfect for small projects",
+        description: "Perfect for first-time fundraisers",
         // The price you want to display, the one user will be charged on Stripe.
-        price: 99,
+        price: 299,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: 149,
+        priceAnchor: 499,
         features: [
           {
-            name: "NextJS boilerplate",
+            name: "5 investor calls per month",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
+          { name: "Curated investor matches" },
+          { name: "Email support" },
+          { name: "Basic profile setup" },
         ],
       },
       {
@@ -48,19 +48,39 @@ const config = {
             : "price_456",
         // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
         isFeatured: true,
-        name: "Advanced",
-        description: "You need more power",
-        price: 149,
-        priceAnchor: 299,
+        name: "Growth",
+        description: "For serious founders ready to scale",
+        price: 599,
+        priceAnchor: 999,
         features: [
           {
-            name: "Agentic SaaS app NextJS boilerplate",
+            name: "15 investor calls per month",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
-          { name: "1 year of updates" },
-          { name: "24/7 support" },
+          { name: "Priority investor matches" },
+          { name: "Dedicated success manager" },
+          { name: "Pitch deck review" },
+          { name: "Advanced analytics" },
+          { name: "Priority support" },
+        ],
+      },
+      {
+        priceId:
+          process.env.NODE_ENV === "development"
+            ? "price_1O5KtcAxyNprDp7iftKnrrpw"
+            : "price_789",
+        name: "Enterprise",
+        description: "Custom solutions for scaling companies",
+        price: 1499,
+        priceAnchor: 2499,
+        features: [
+          {
+            name: "Unlimited investor calls",
+          },
+          { name: "White-glove service" },
+          { name: "Custom investor network access" },
+          { name: "Full pitch preparation" },
+          { name: "Real-time deal tracking" },
+          { name: "API access" },
         ],
       },
     ],

@@ -2,36 +2,37 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import config from "@/config";
 
-// The list of your testimonials. It needs 3 items to fill the row.
 const list: {
   username?: string;
   name: string;
   text: string;
   img?: string | StaticImageData;
+  company?: string;
+  raised?: string;
 }[] = [
   {
-    // Optional, use for social media like Twitter. Does not link anywhere but cool to display
-    username: "marclou",
-    // REQUIRED
-    name: "Marc Lou",
-    // REQUIRED
-    text: "Really easy to use. The tutorials are really useful and explains how everything works. Hope to ship my next project really fast!",
-    // Optional, a statically imported image (usually from your public folder—recommended) or a link to the person's avatar. Shows a fallback letter if not provided
-    img: "https://pbs.twimg.com/profile_images/1514863683574599681/9k7PqDTA_400x400.jpg",
+    name: "Sarah Chen",
+    company: "HealthTech Startup",
+    raised: "Raised $2M",
+    text: "After 4 months of cold emailing with zero responses, I tried ConnectCap. Within 3 weeks, I had 8 investor calls and closed my seed round. This platform changed everything for me.",
+    img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
   },
   {
-    username: "the_mcnaveen",
-    name: "Naveen",
-    text: "Setting up everything from the ground up is a really hard, and time consuming process. What you pay for will save your time for sure.",
+    name: "Marcus Rodriguez",
+    company: "FinTech Platform",
+    raised: "Raised $1.5M",
+    text: "The investor matches were incredibly relevant. No more wasting time pitching to VCs who aren't interested in my space. Every call was productive and several led to term sheets.",
+    img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
   },
   {
-    username: "wahab",
-    name: "Wahab Shaikh",
-    text: "Easily saves 15+ hrs for me setting up trivial stuff. Now, I can directly focus on shipping features rather than hours of setting up the same technologies from scratch. Feels like a super power! :D",
+    name: "Jessica Taylor",
+    company: "SaaS for E-commerce",
+    raised: "Raised $750K",
+    text: "The pitch prep support was invaluable. They helped me tighten my story and anticipate tough questions. I felt confident going into every investor conversation.",
+    img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
   },
 ];
 
-// A single testimonial, to be rendered in  a list
 const Testimonial = ({ i }: { i: number }) => {
   const testimonial = list[i];
 
@@ -39,40 +40,42 @@ const Testimonial = ({ i }: { i: number }) => {
 
   return (
     <li key={i}>
-      <figure className="relative max-w-lg h-full p-6 md:p-10 bg-base-200 rounded-2xl max-md:text-sm flex flex-col">
+      <figure className="relative max-w-lg h-full p-8 md:p-10 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 max-md:text-sm flex flex-col border-2 border-gray-100">
         <blockquote className="relative flex-1">
-          <p className="text-base-content/80 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed text-lg mb-4">
             {testimonial.text}
           </p>
         </blockquote>
-        <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 md:gap-8 md:pt-8 md:mt-8 border-t border-base-content/5">
-          <div className="w-full flex items-center justify-between gap-2">
-            <div>
-              <div className="font-medium text-base-content md:mb-0.5">
-                {testimonial.name}
+        <figcaption className="relative flex items-center justify-start gap-4 pt-6 mt-6 border-t border-gray-200">
+          <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
+            {testimonial.img ? (
+              <Image
+                className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover"
+                src={list[i].img}
+                alt={`${list[i].name}'s testimonial for ${config.appName}`}
+                width={64}
+                height={64}
+              />
+            ) : (
+              <span className="w-14 h-14 md:w-16 md:h-16 rounded-full flex justify-center items-center text-xl font-medium bg-gradient-to-br from-[#667eea] to-[#764ba2] text-white">
+                {testimonial.name.charAt(0)}
+              </span>
+            )}
+          </div>
+          <div className="flex-1">
+            <div className="font-bold text-gray-900 text-lg">
+              {testimonial.name}
+            </div>
+            {testimonial.company && (
+              <div className="text-sm text-gray-600">
+                {testimonial.company}
               </div>
-              {testimonial.username && (
-                <div className="mt-0.5 text-sm text-base-content/80">
-                  @{testimonial.username}
-                </div>
-              )}
-            </div>
-
-            <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
-              {testimonial.img ? (
-                <Image
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
-                  src={list[i].img}
-                  alt={`${list[i].name}'s testimonial for ${config.appName}`}
-                  width={48}
-                  height={48}
-                />
-              ) : (
-                <span className="w-10 h-10 md:w-12 md:h-12 rounded-full flex justify-center items-center text-lg font-medium bg-base-300">
-                  {testimonial.name.charAt(0)}
-                </span>
-              )}
-            </div>
+            )}
+            {testimonial.raised && (
+              <div className="text-sm font-semibold gradient-brand-text mt-1">
+                {testimonial.raised}
+              </div>
+            )}
           </div>
         </figcaption>
       </figure>
@@ -82,17 +85,16 @@ const Testimonial = ({ i }: { i: number }) => {
 
 const Testimonials3 = () => {
   return (
-    <section id="testimonials">
+    <section id="testimonials" className="bg-gradient-to-b from-white to-gray-50">
       <div className="py-24 px-8 max-w-7xl mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
-            <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
-              212 makers are already shipping faster!
+            <h2 className="sm:text-5xl text-4xl font-extrabold text-gray-900">
+              Founders Are <span className="gradient-brand-text">Closing Deals</span>
             </h2>
           </div>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
-            Don&apos;t take our word for it. Here&apos;s what they have to say
-            about ShipFast.
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-xl text-gray-600">
+            Real founders. Real results. See how ConnectCap helped them break through and secure funding.
           </p>
         </div>
 

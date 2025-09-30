@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +7,11 @@
 html,
 body {
   scroll-behavior: smooth !important;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', serif;
 }
 
 /* It makes the HTML progress bar filling smooth when value change. */
@@ -18,5 +25,14 @@ progress::-webkit-progress-value {
   }
   .btn {
     @apply !capitalize;
+  }
+  .gradient-brand {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  .gradient-brand-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

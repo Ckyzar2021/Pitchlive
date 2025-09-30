@@ -10,11 +10,10 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { Metadata } from 'next';
 
-// Add metadata for SEO
 export const metadata: Metadata = {
-  title: 'FeNAgO - Agentic AI SaaS Platform Template',
-  description: 'The complete platform for building agentic AI-powered SaaS products—ideal for students, developers, startups, and entrepreneurs looking to innovate rapidly. In the near future, every traditional SaaS application will inevitably be surpassed by an Agentic SaaS solution, redefining the competitive landscape.',
-  keywords: 'agentic AI, SaaS template, AI platform, DrLee, AI development, FeNAgO, AI startup',
+  title: 'ConnectCap - Direct Access to Investors for Early-Stage Founders',
+  description: 'Stop chasing investors and start connecting. ConnectCap gives frustrated founders direct, 1-on-1 phone call access to investors who want to hear your pitch. Skip the cold emails and get funded faster.',
+  keywords: 'startup funding, investor connections, pitch to investors, seed funding, venture capital, fundraising platform, investor meetings, startup capital',
 };
 
 export default function Home(): JSX.Element {

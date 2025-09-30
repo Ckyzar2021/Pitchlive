@@ -1,29 +1,36 @@
 import Image from "next/image";
-import config from "@/config";
 
 const CTA = () => {
   return (
-    <section className="relative hero overflow-hidden min-h-screen">
-      <Image
-        src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
-        alt="Background"
-        className="object-cover w-full"
-        fill
-      />
-      <div className="relative hero-overlay bg-neutral bg-opacity-70"></div>
-      <div className="relative hero-content text-center text-neutral-content p-8">
-        <div className="flex flex-col items-center max-w-xl p-8 md:p-0">
-          <h2 className="font-bold text-3xl md:text-5xl tracking-tight mb-8 md:mb-12">
-            Boost your app, launch, earn
+    <section className="relative overflow-hidden py-24 md:py-32">
+      <div className="absolute inset-0 gradient-brand opacity-95"></div>
+      <div className="relative max-w-7xl mx-auto px-8 text-center">
+        <div className="flex flex-col items-center max-w-4xl mx-auto">
+          <h2 className="font-extrabold text-4xl md:text-6xl tracking-tight mb-6 md:mb-8 text-white">
+            Ready to Stop Chasing and Start Connecting?
           </h2>
-          <p className="text-lg opacity-80 mb-12 md:mb-16">
-            Don&apos;t waste time integrating APIs or designing a pricing
-            section...
+          <p className="text-xl md:text-2xl text-white opacity-95 mb-10 md:mb-14 leading-relaxed max-w-3xl">
+            Join hundreds of founders who have ditched the cold email grind and are now having real conversations with real investors.
           </p>
 
-          <button className="btn btn-primary btn-wide">
-            Get {config.appName}
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <a
+              href="#pricing"
+              className="bg-white text-[#667eea] font-bold px-10 py-5 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 text-lg"
+            >
+              Get Started Now
+            </a>
+            <a
+              href="#features"
+              className="border-3 border-white text-white font-bold px-10 py-5 rounded-lg hover:bg-white hover:text-[#667eea] transition-all duration-200 text-lg"
+            >
+              Learn More
+            </a>
+          </div>
+
+          <p className="text-white text-sm mt-8 opacity-80">
+            No credit card required. Cancel anytime.
+          </p>
         </div>
       </div>
     </section>
